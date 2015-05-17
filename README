@@ -1,3 +1,14 @@
+0. Originally from http://freecode.com/projects/fbv
+    Since the latest release (0.99) dates 24 Aug 2003 23:26 (on site) &&
+    latest modification (1.0b) dates 2011-Jun-05 22:42:59 (on download site) &&
+    LICENSE allows me =), I took the liberty of cloning the project here and
+    making some changes. Probably I will end up with a small version of this
+	project only to carry some image files, including animated gifs, just to
+	make my booting time and coding in ttys time happier.
+  Thank you.
+  Caio.
+
+
 1. OVERVIEW
     fbv (FrameBuffer Viewer) is a simple program to view pictures on
   a linux framebuffer device. In 2000, when fbv was created, there
