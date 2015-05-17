@@ -38,6 +38,7 @@ static int opt_clear = 1,
 	   opt_stretch = 0,
 	   opt_delay = 0,
 	   opt_enlarge = 0,
+	   upper_right = 0,
 	   opt_ignore_aspect = 0;
 
 
@@ -308,15 +309,23 @@ identified:
 		}
 		if(refresh)
 		{
-			if(i.width < screen_width)
-				x_offs = (screen_width - i.width) / 2;
-			else
-				x_offs = 0;
-			
-			if(i.height < screen_height)
-				y_offs = (screen_height - i.height) / 2;
-			else
+			if(upper_right == 1)
+			{
+				x_offs = screen_width - x_size;
 				y_offs = 0;
+			}
+			else
+			{
+				if(i.width < screen_width)
+					x_offs = (screen_width - i.width) / 2;
+				else
+					x_offs = 0;
+
+				if(i.height < screen_height)
+					y_offs = (screen_height - i.height) / 2;
+				else
+					y_offs = 0;
+			}
 			
 			fb_display(i.rgb, i.alpha, i.width, i.height, x_pan, y_pan, x_offs, y_offs);
 			refresh = 0;
@@ -490,6 +499,7 @@ int main(int argc, char **argv)
 		{"delay", 	required_argument, 0, 's'},
 		{"enlarge",	no_argument,	0, 'e'},
 		{"ignore-aspect", no_argument,	0, 'r'},
+		{"upper-right", no_argument,	0, 'U'},
 		{0, 0, 0, 0}
 	};
 	int c, i;
@@ -501,7 +511,7 @@ int main(int argc, char **argv)
 		return(1);
 	}
 	
-	while((c = getopt_long_only(argc, argv, "hcauifks:er", long_options, NULL)) != EOF)
+	while((c = getopt_long_only(argc, argv, "hcauifks:erU", long_options, NULL)) != EOF)
 	{
 		switch(c)
 		{
@@ -534,6 +544,9 @@ int main(int argc, char **argv)
 				break;
 			case 'r':
 				opt_ignore_aspect = 1;
+				break;
+			case 'U':
+				upper_right = 1;
 				break;
 		}
 	}

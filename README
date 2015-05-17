@@ -12,6 +12,10 @@
   - libjpeg for JPEG support
   - libpng for PNG support
 
+  !! maybe you'll have to:
+     ln -s /usr/lib/i386-linux-gnu/libgif.a /usr/lib/
+     ln -s /usr/lib/i386-linux-gnu/libgif.so[some version] /usr/lib/
+
 3. INSTALLATION
   - unpack the archive (you've propably already done it)
   - run ./configure
@@ -26,6 +30,7 @@
 5. AUTHORS
   Tomasz 'smoku' Sterna <tomek@smoczy.net>
   Mateusz 'mteg' Golicz <mtg@elsat.net.pl>
+  Caio BCarmo <bedulli@ime.usp.br>
   
   Feel free to send any comments, patches, bugfixes, suggestions, etc. The
   authors are not native english speakers, and they are aware of the fact
